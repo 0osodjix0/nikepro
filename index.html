@@ -6,7 +6,8 @@
     <title>Happy Valentine's Day!</title>
     <style>
         body {
-            background-color: black;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
@@ -46,22 +47,11 @@
             top: 0;
             left: 0;
         }
-        .music-button {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: white;
-            color: black;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
     <div class="message" id="message">Нажми где угодно</div>
     <img src="heart_image.jpg" class="final-image" id="finalImage">
-    <button class="music-button" id="musicButton">🔊</button>
     <audio id="backgroundMusic" loop>
         <source src="background_music.mp3" type="audio/mpeg">
     </audio>
@@ -77,7 +67,6 @@
         const messageDiv = document.getElementById("message");
         const finalImage = document.getElementById("finalImage");
         const music = document.getElementById("backgroundMusic");
-        const musicButton = document.getElementById("musicButton");
         let musicPlaying = false;
         
         document.body.addEventListener("click", function () {
@@ -105,16 +94,6 @@
             
             setTimeout(() => heart.remove(), 3000);
         }
-        
-        musicButton.addEventListener("click", function () {
-            if (music.paused) {
-                music.play();
-                musicButton.textContent = "🔊";
-            } else {
-                music.pause();
-                musicButton.textContent = "🔇";
-            }
-        });
     </script>
 </body>
 </html>
