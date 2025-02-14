@@ -22,19 +22,21 @@
         }
         .heart {
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: red;
+            width: 30px;
+            height: 30px;
+            background-color: red;
             clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
             animation: floatUp 3s linear infinite;
+            transform-origin: center;
+            opacity: 1;
         }
         @keyframes floatUp {
             from {
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
                 opacity: 1;
             }
             to {
-                transform: translateY(-100vh);
+                transform: translateY(-100vh) scale(0.5);
                 opacity: 0;
             }
         }
@@ -61,7 +63,7 @@
 <body>
     <div class="message" id="message">Нажми где угодно</div>
     <img src="final_heart.jpg" class="final-image" id="finalImage">
-    <button class="music-button" id="musicButton"></button>
+    <button class="music-button" id="musicButton">🔊</button>
     <audio id="backgroundMusic" loop>
         <source src="background_music.mp3" type="audio/mpeg">
     </audio>
@@ -109,13 +111,12 @@
         musicButton.addEventListener("click", function () {
             if (music.paused) {
                 music.play();
-                musicButton.textContent = " ";
+                musicButton.textContent = "🔊";
             } else {
                 music.pause();
-                musicButton.textContent = " ";
+                musicButton.textContent = "🔇";
             }
         });
     </script>
 </body>
 </html>
-
